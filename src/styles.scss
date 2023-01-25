@@ -1,0 +1,49 @@
+@import "styles/flex";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+  text-align: left;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  border-radius: 5px;
+}
+
+.form-group-outline {
+  @extend .form-group;
+
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: var(--ct-hover-form-field);
+    background-color: #ffffff;
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: darkblue;
+    > .mat-form-field-outline-start {
+      border-width: 1px;
+    }
+    > .mat-form-field-outline-end {
+      border-width: 1px;
+    }
+    > .mat-form-field-outline-gap {
+      border-width: 1px;
+    }
+  }
+
+  .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: darkblue;
+  }
+}
+
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";

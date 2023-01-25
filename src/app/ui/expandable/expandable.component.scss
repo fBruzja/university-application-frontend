@@ -1,0 +1,29 @@
+:host {
+    background-color: #f9f9f9;
+    border: 1px #ced2d5 solid;
+    border-radius: 4px;
+    display: block;
+  }
+  
+  .expandable {
+    &__headline {
+      border-bottom: 1px #ced2d5 solid;
+      background-color: #e6e6e6;
+  
+      span {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: bold;
+        color: #79838c;
+        padding: 5px 0;
+      }
+  
+      ::ng-deep & app-button button {
+        cursor: pointer;
+        line-height: 20px;
+        height: 20px;
+        color: #004b78;
+      }
+    }
+  }
+  

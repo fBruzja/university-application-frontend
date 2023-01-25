@@ -1,0 +1,29 @@
+<div [ngClass]="class" class="form-group-basic">
+  <mat-form-field floatLabel="always" appearance="outline">
+    <mat-label>{{ label }}</mat-label>
+    <input
+      #input
+      matInput
+      [type]="type"
+      [maxlength]="maxlength"
+      [formControl]="formControl"
+      [readonly]="readonly"
+      (blur)="onBlur($event)"
+      (input)="onInput($event)"
+      [autocomplete]="autocomplete"
+    />
+    <span matSuffix *ngIf="suffix">{{ suffix }}</span>
+    <mat-icon
+      *ngIf="tooltipText"
+      matSuffix
+      matTooltip="{{ tooltipText }}"
+      matTooltipPosition="right"
+      matTooltipClass="tooltip"
+      class="tooltip-icon"
+      >error</mat-icon
+    >
+    <mat-error *ngIf="ngControl && !ngControl.control?.valid">{{
+      getErrorMessage(ngControl?.control?.errors)
+    }}</mat-error>
+  </mat-form-field>
+</div>

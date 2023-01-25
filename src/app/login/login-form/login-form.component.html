@@ -1,0 +1,17 @@
+<form [formGroup]="formGroup">
+  <div class="container__row">
+    <app-input class="container__col-12" label="Email" formControlName="email">
+    </app-input>
+  </div>
+  <div class="container__row">
+    <app-input
+      class="container__col-12"
+      label="Password"
+      formControlName="password"
+    >
+    </app-input>
+  </div>
+  <div class="container__row">
+    <button type="button" (click)="login()">Login</button>
+  </div>
+</form>

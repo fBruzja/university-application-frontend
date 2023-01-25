@@ -1,0 +1,22 @@
+<div class="expandable__headline">
+    <button
+      mat-icon-button
+      matTooltip="tooltip"
+      disableRipple="true"
+      matTooltipPosition="above"
+      color="blue"
+      type="button"
+      class="mt-2"
+      (click)="toggleExpansion()" 
+    >
+      <mat-icon>{{ expanded ? "arrow_drop_up" : "arrow_drop_down" }}</mat-icon>
+    </button>
+  
+    <span>{{ label }}</span>
+  </div>
+  <ng-container *ngTemplateOutlet="expanded ? content : null"></ng-container>
+  
+  <ng-template #content>
+    <ng-content></ng-content>
+  </ng-template>
+  

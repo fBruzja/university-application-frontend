@@ -1,0 +1,29 @@
+::ng-deep app-input {
+  .mat-form-field-flex > .mat-form-field-outline {
+    background-color: white;
+  }
+
+  .mat-input-element:disabled,
+  .mat-form-field-type-mat-native-select.mat-form-field-disabled
+    .mat-form-field-infix::after {
+    color: #292f33;
+  }
+
+  .mat-form-field-disabled .mat-form-field-flex > .mat-form-field-outline {
+    background-color: #f5f5f5;
+  }
+
+  .mat-form-field-suffix {
+    top: 0 !important;
+  }
+
+  .tooltip {
+    color: white;
+    background-color: darkblue;
+  }
+}
+
+::ng-deep .mat-form-field-label {
+  font-weight: 500 !important;
+  color: #79838c !important;
+}

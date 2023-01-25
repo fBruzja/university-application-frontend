@@ -1,0 +1,30 @@
+<app-toolbar title="Login">
+  <button
+    mat-stroked-button
+    type="button"
+    class="margin-left"
+    tooltip="Back to overview"
+    routerLink="/dashboard"
+  >
+    <span>Back to overview</span>
+  </button>
+</app-toolbar>
+
+<app-overlay *ngIf="loading">
+  <mat-progress-spinner
+    diameter="25"
+    mode="indeterminate"
+    color="primary"
+    strokeWidth="2"
+  >
+  </mat-progress-spinner>
+</app-overlay>
+
+<div class="wrapper">
+    <app-expandable label="Login" [isExpandable]="true" [expanded]="true">
+      <app-login-form
+        (loginChanged)="onLoginDataChanged($event)"
+        [disabled]="false"
+      ></app-login-form>
+    </app-expandable>
+  </div>
