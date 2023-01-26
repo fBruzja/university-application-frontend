@@ -1,4 +1,14 @@
 <mat-toolbar>
-    <span>University Application</span>
+  <span>University Application</span>
+  <span class="flex-expand"></span>
+  <button
+    mat-stroked-button
+    type="button"
+    class="margin-left"
+    tooltip="Logout"
+    *ngIf="this.shouldShowLogoutButton()"
+    (click)="logOut()"
+  >
+    <span>Logout</span>
+  </button>
 </mat-toolbar>
-  

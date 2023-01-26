@@ -28,6 +28,8 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
 import { OverlayComponent } from './shared/component/overlay/overlay.component';
 import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { SignupComponent } from './signup/signup.component';
+import { SignupFormComponent } from './signup/signup-form/signup-form.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     NotFoundPageComponent,
     LoginFormComponent,
     OverlayComponent,
+    SignupComponent,
+    SignupFormComponent,
   ],
   imports: [
     BrowserModule,

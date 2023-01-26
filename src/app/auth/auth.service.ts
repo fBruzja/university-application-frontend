@@ -20,10 +20,21 @@ export class AuthService {
     );
   }
 
+  signUp(firstName: string, lastName: string, email: string, password: string) {
+    return this.apiService.signUp(firstName, lastName, email, password).pipe(
+      tap((response: any) => {
+        localStorage.setItem('ua_auth', response.token);
+      })
+    );
+  }
+
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('ua_auth');
-    // Check whether the token is expired and return
-    // true or false
+    
+    if(token === null) {
+      return false;
+    }
+
     return !this.jwtHelper.isTokenExpired(token);
   }
 }

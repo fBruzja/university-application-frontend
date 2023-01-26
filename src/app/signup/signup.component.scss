@@ -1,0 +1,31 @@
+.wrapper {
+  padding: 15px;
+  min-width: 150px;
+  max-width: 300px;
+
+  & .button {
+    &__container {
+      display: block;
+
+      & button {
+        margin-bottom: 15px;
+      }
+    }
+
+    &--right {
+      float: right;
+    }
+  }
+}
+
+app-expandable {
+  margin-bottom: 15px;
+}
+
+.margin-left {
+  margin-left: 15px;
+}
+
+:host {
+  display: block;
+}

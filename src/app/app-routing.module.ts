@@ -4,6 +4,7 @@ import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundPageComponent } from './shared/component/not-found-page/not-found-page.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
     {
@@ -14,6 +15,10 @@ const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent,
+    },
+    {
+        path: 'signup',
+        component: SignupComponent
     },
     {
         path: '',

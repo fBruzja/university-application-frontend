@@ -1,0 +1,15 @@
+form {
+  padding: 10px 10px 5px 10px;
+}
+
+app-expandable {
+  width: 100%;
+}
+
+::ng-deep app-input .mat-form-field-wrapper {
+  padding-bottom: 0.35em;
+}
+
+::ng-deep app-input mat-error {
+  padding-top: 1em;
+}

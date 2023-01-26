@@ -1,5 +1,13 @@
 <form [formGroup]="formGroup">
   <div class="container__row">
+    <app-input class="container__col-12" label="First Name" formControlName="firstName">
+    </app-input>
+  </div>
+  <div class="container__row">
+    <app-input class="container__col-12" label="Last Name" formControlName="lastName">
+    </app-input>
+  </div>
+  <div class="container__row">
     <app-input class="container__col-12" label="Email" formControlName="email">
     </app-input>
   </div>
@@ -12,7 +20,6 @@
     </app-input>
   </div>
   <div class="container__row">
-    <button class="container__col-6 action" mat-stroked-button type="button" (click)="login()">Login</button>
-    <button class="container__col-6 action" mat-stroked-button type="button" routerLink="/signup">Sign Up here</button>
+    <button type="button" (click)="signUp()">Sign Up</button>
   </div>
 </form>
