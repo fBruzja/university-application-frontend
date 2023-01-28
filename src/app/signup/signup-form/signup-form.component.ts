@@ -6,6 +6,8 @@ export interface SignUpFormData {
   lastName: string;
   email: string;
   password: string;
+  major: string;
+  minor: string;
 }
 
 @Component({
@@ -33,6 +35,8 @@ export class SignupFormComponent {
       lastName: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
+      major: new FormControl('', Validators.required),
+      minor: new FormControl('', Validators.required)
     },
     {
       updateOn: 'blur',

@@ -1,0 +1,14 @@
+<app-toolbar title="Courses"> </app-toolbar>
+<app-course-list
+  [courses]="courses"
+  (rowClicked)="onCourseSelected($event)"
+></app-course-list>
+<app-overlay *ngIf="loading">
+  <mat-progress-spinner
+    diameter="25"
+    mode="indeterminate"
+    color="primary"
+    strokeWidth="2"
+  >
+  </mat-progress-spinner>
+</app-overlay>

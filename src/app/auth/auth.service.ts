@@ -20,18 +20,27 @@ export class AuthService {
     );
   }
 
-  signUp(firstName: string, lastName: string, email: string, password: string) {
-    return this.apiService.signUp(firstName, lastName, email, password).pipe(
-      tap((response: any) => {
-        localStorage.setItem('ua_auth', response.token);
-      })
-    );
+  signUp(
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string,
+    major: string,
+    minor: string
+  ) {
+    return this.apiService
+      .signUp(firstName, lastName, email, password, major, minor)
+      .pipe(
+        tap((response: any) => {
+          localStorage.setItem('ua_auth', response.token);
+        })
+      );
   }
 
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('ua_auth');
-    
-    if(token === null) {
+
+    if (token === null) {
       return false;
     }
 

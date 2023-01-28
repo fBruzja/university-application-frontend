@@ -1,7 +1,7 @@
 .wrapper {
   padding: 15px;
   min-width: 150px;
-  max-width: 300px;
+  max-width: 900px;
   margin: 0 auto;
 
   & .button {
@@ -29,4 +29,8 @@ app-expandable {
 
 :host {
   display: block;
+}
+
+.user-detail-element {
+  margin: 15px;
 }

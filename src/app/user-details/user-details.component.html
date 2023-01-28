@@ -1,0 +1,36 @@
+<app-toolbar title="Course details">
+    <button
+      mat-stroked-button
+      type="button"
+      class="stroked-button margin-left"
+      tooltip="Upload image"
+    >
+      <span>Upload image</span>
+    </button>
+    <button
+      mat-stroked-button
+      type="button"
+      class="stroked-button margin-left"
+      tooltip="Back to overview"
+      routerLink="/courses"
+    >
+      <span>Back to overview</span>
+    </button>
+  </app-toolbar>
+  
+  <app-overlay *ngIf="loading">
+    <mat-progress-spinner
+      diameter="25"
+      mode="indeterminate"
+      color="primary"
+      strokeWidth="2"
+    >
+    </mat-progress-spinner>
+  </app-overlay>
+  
+  <div class="wrapper">
+    <app-expandable label="User details & Settings" [isExpandable]="true" [expanded]="true">
+
+    </app-expandable>
+  </div>
+  

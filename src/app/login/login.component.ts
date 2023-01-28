@@ -15,7 +15,7 @@ export class LoginComponent {
 
   onLoginDataChanged(data: LoginFormData) {
     this.authService.login(data.email, data.password).subscribe(() => {
-      this.router.navigate(["/dashboard"]);
+      this.router.navigate(["/courses"]);
     });
   }
 

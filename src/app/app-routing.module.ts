@@ -1,15 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
+import { CoursesOverviewComponent } from './courses/courses-overview/courses-overview.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundPageComponent } from './shared/component/not-found-page/not-found-page.component';
 import { SignupComponent } from './signup/signup.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 const routes: Routes = [
     {
-        path: 'dashboard',
-        component: DashboardComponent,
+        path: 'courses',
+        component: CoursesOverviewComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'courses/:id',
+        component: CourseDetailComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'user/:id',
+        component: UserDetailsComponent,
         canActivate: [AuthGuard]
     },
     {
@@ -23,7 +35,7 @@ const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'dashboard',
+        redirectTo: 'courses',
     },
     {
         path: '**',

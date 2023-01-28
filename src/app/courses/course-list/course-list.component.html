@@ -1,0 +1,31 @@
+<div class="header">
+    <div class="header-row">
+      <label class="col-title" *ngIf="internalColumnConfig.title">Title</label>
+      <label
+        class="col-location"
+        *ngIf="internalColumnConfig.location"
+        >Location</label
+      >
+      <label class="col-time" *ngIf="internalColumnConfig.time"
+        >Time</label
+      >
+    </div>
+  </div>
+  <div class="body">
+    <div
+      class="row"
+      *ngFor="let course of courses"
+      (click)="onRowClick(course.categoryId)"
+    >
+      <label class="col-title" *ngIf="internalColumnConfig.title">{{
+        valueTransformerPipe.transform(course.title)
+      }}</label>
+      <label class="col-location" *ngIf="internalColumnConfig.location">{{
+        valueTransformerPipe.transform(course.location)
+      }}</label>
+      <label class="col-time" *ngIf="internalColumnConfig.time">{{
+        valueTransformerPipe.transform(course.time)
+      }}</label>
+    </div>
+  </div>
+  

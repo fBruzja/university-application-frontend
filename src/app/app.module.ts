@@ -21,7 +21,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { ExpandableComponent } from './ui/expandable/expandable.component';
 import { NotFoundPageComponent } from './shared/component/not-found-page/not-found-page.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
@@ -30,6 +29,11 @@ import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { SignupComponent } from './signup/signup.component';
 import { SignupFormComponent } from './signup/signup-form/signup-form.component';
+import { CourseListComponent } from './courses/course-list/course-list.component';
+import { CoursesOverviewComponent } from './courses/courses-overview/courses-overview.component';
+import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { CheckboxComponent } from './ui/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -38,13 +42,17 @@ import { SignupFormComponent } from './signup/signup-form/signup-form.component'
     MainComponent,
     LoginComponent,
     InputComponent,
-    DashboardComponent,
     ExpandableComponent,
     NotFoundPageComponent,
     LoginFormComponent,
     OverlayComponent,
     SignupComponent,
     SignupFormComponent,
+    CourseListComponent,
+    CoursesOverviewComponent,
+    CourseDetailComponent,
+    UserDetailsComponent,
+    CheckboxComponent,
   ],
   imports: [
     BrowserModule,

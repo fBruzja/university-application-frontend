@@ -1,0 +1,57 @@
+:host {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  ::ng-deep {
+    // unchecked normal state
+    .mat-checkbox-background,
+    .mat-checkbox-frame {
+      background-color: white;
+      border: 1px solid gray;
+      border-radius: 3px;
+    }
+
+    .mat-checkbox-label {
+      color: gray;
+    }
+
+    // checked normal state
+    .mat-checkbox-checked .mat-checkbox-background {
+      background-color: lightblue;
+      border: 1px solid lightblue;
+    }
+
+    // hover state
+    .mat-checkbox-inner-container:hover .mat-checkbox-background {
+      border: 1px solid darkblue;
+    }
+
+    // "pressed" state
+    .mat-checkbox-inner-container:active .mat-checkbox-background {
+      background-color: darkblue;
+    }
+
+    // disabled state. Overrides hover state
+    .mat-checkbox-disabled,
+    .mat-checkbox-disabled .mat-checkbox-inner-container:hover {
+      .mat-checkbox-checkmark {
+        fill: lightgray;
+      }
+
+      .mat-checkbox-checkmark-path {
+        stroke: lightgray !important;
+      }
+
+      .mat-checkbox-background {
+        background-color: gray;
+        border: 1px solid lightgray;
+      }
+
+      .mat-checkbox-label {
+        color: lightgray;
+      }
+    }
+  }
+}

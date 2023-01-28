@@ -5,8 +5,18 @@
     mat-stroked-button
     type="button"
     class="margin-left"
+    tooltip="User Settings"
+    *ngIf="this.shouldShowButton()"
+    (click)="goToUserSettings()"
+  >
+    <span>User Settings</span>
+  </button>
+  <button
+    mat-stroked-button
+    type="button"
+    class="margin-left"
     tooltip="Logout"
-    *ngIf="this.shouldShowLogoutButton()"
+    *ngIf="this.shouldShowButton()"
     (click)="logOut()"
   >
     <span>Logout</span>

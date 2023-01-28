@@ -15,9 +15,9 @@ export class SignupComponent {
 
   onSignUpDataChanged(data: SignUpFormData) {
     this.authService
-      .signUp(data.firstName, data.lastName, data.email, data.password)
+      .signUp(data.firstName, data.lastName, data.email, data.password, data.major, data.minor)
       .subscribe(() => {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/courses']);
       });
   }
 }
