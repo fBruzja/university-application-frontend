@@ -1,0 +1,10 @@
+<form [formGroup]="formGroup">
+  <div class="container__row">
+    <app-checkbox
+      class="ml-10 container__col-12"
+      label="Notifications"
+      [value]="notificationsOn"
+      formControlName="notifications"
+    ></app-checkbox>
+  </div>
+</form>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ProfilePicture } from './shared/model/profile-picture';
 
 @Injectable({
   providedIn: 'root',
@@ -55,6 +56,15 @@ export class ApiService {
     return this.http.put(
       `http://localhost:8080/api/courses/remove-attendee/${courseId}/${attendee}`,
       {}
+    );
+  }
+
+  updateProfilePicture(profilePicture: string, userId: string) {
+    return this.http.put(
+      `http://localhost:8080/api/users/profile-picture/${userId}`,
+      {
+        base64Image: profilePicture,
+      } as ProfilePicture
     );
   }
 }

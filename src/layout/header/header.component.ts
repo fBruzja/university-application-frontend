@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = this.jwtHelper.decodeToken(localStorage.getItem("ua_auth")!).userId;
-    console.log(this.userId);
+    
   }
 
   shouldShowButton() {
@@ -32,6 +32,7 @@ export class HeaderComponent implements OnInit {
   }
 
   goToUserSettings() {
+    console.log('userID::',this.userId);
     this.router.navigate(['user', this.userId]);
   }
 }

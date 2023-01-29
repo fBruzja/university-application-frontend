@@ -43,8 +43,6 @@ export class CourseDetailComponent implements OnInit {
     this.loading = true;
     this.apiService.getCourseById(courseId).subscribe((response: any) => {
       this.course = response;
-      console.log(this.attendees);
-
       this.getCourseAttendees(response.attendees);
     });
   }

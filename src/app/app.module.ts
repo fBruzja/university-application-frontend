@@ -34,6 +34,7 @@ import { CoursesOverviewComponent } from './courses/courses-overview/courses-ove
 import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { CheckboxComponent } from './ui/checkbox/checkbox.component';
+import { UserDetailsSettingsFormComponent } from './user-details/user-details-settings-form/user-details-settings-form.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { CheckboxComponent } from './ui/checkbox/checkbox.component';
     CourseDetailComponent,
     UserDetailsComponent,
     CheckboxComponent,
+    UserDetailsSettingsFormComponent,
   ],
   imports: [
     BrowserModule,

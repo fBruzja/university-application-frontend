@@ -31,6 +31,12 @@ app-expandable {
   display: block;
 }
 
-.user-detail-element {
+.user-info-wrapper {
   margin: 15px;
+}
+
+.profile-picture {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }

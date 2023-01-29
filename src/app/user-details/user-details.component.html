@@ -1,12 +1,5 @@
 <app-toolbar title="Course details">
-    <button
-      mat-stroked-button
-      type="button"
-      class="stroked-button margin-left"
-      tooltip="Upload image"
-    >
-      <span>Upload image</span>
-    </button>
+    <img *ngIf="base64Image.length > 0" class="profile-picture" [src]="base64Image">
     <button
       mat-stroked-button
       type="button"
@@ -30,7 +23,30 @@
   
   <div class="wrapper">
     <app-expandable label="User details & Settings" [isExpandable]="true" [expanded]="true">
-
+        <div class="user-info-wrapper container__row">
+            <div class="container__col-6">
+                <p>{{user.firstName}} {{user.lastName}}</p>
+                <p>Major: {{user.major}}</p>
+                <p>Minor: {{user.minor}}</p>
+                <p>Courses:</p>
+                <div *ngFor="let course of courses">
+                    <p>- {{course.title}}</p>
+                </div>
+            </div>
+            <div class="container__col-6">
+                <div>
+                    <app-user-details-settings-form
+                        (settingsChanged)="onSettingsDataChanged($event)"
+                        [formData]="userSettingsData"
+                        [notificationsOn]="userSettingsData.notifications"
+                    ></app-user-details-settings-form>
+                </div>
+                <div *ngIf="!user.profilePicture">
+                    <label>Upload your profile picture here:</label>
+                    <input type="file" (change)="onFileChange($event)" />
+                </div>
+            </div>
+        </div>
     </app-expandable>
   </div>
   
