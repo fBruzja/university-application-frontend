@@ -1,0 +1,14 @@
+<form [formGroup]="formGroup">
+  <div class="container__row">
+    <app-input class="container__col-6 comment" label="Comment" formControlName="comment">
+    </app-input>
+    <button
+      class="container__col-6 action"
+      mat-stroked-button
+      type="button"
+      (click)="addComment()"
+    >
+      Add Comment
+    </button>
+  </div>
+</form>
