@@ -35,6 +35,7 @@ import { CourseDetailComponent } from './courses/course-detail/course-detail.com
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { CheckboxComponent } from './ui/checkbox/checkbox.component';
 import { UserDetailsSettingsFormComponent } from './user-details/user-details-settings-form/user-details-settings-form.component';
+import { AddCommentFormComponent } from './courses/course-detail/add-comment-form/add-comment-form.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { UserDetailsSettingsFormComponent } from './user-details/user-details-se
     UserDetailsComponent,
     CheckboxComponent,
     UserDetailsSettingsFormComponent,
+    AddCommentFormComponent,
   ],
   imports: [
     BrowserModule,

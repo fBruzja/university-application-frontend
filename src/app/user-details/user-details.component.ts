@@ -11,9 +11,9 @@ import { UserSettingsFormData } from './user-details-settings-form/user-details-
 export class UserDetailsComponent implements OnInit {
   loading = false;
   user: any = {};
-  userId: string = "";
+  userId: string = '';
   courses: any[] = [];
-  base64Image: string = "";
+  base64Image: string = '';
   userSettingsData: UserSettingsFormData = { notifications: false };
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
@@ -30,8 +30,8 @@ export class UserDetailsComponent implements OnInit {
       this.loading = true;
       this.user = user;
       this.base64Image = user.profilePicture;
-      console.log(user);
-      
+      this.userSettingsData = { notifications: user.notifications };
+
       this.getCourseListFromUser(user.courses);
       this.loading = false;
     });
@@ -58,7 +58,9 @@ export class UserDetailsComponent implements OnInit {
     reader.readAsDataURL(file);
     reader.onload = () => {
       this.base64Image = reader.result as string;
-      this.apiService.updateProfilePicture(this.base64Image, this.userId).subscribe(() => this.reloadUser());
+      this.apiService
+        .updateProfilePicture(this.base64Image, this.userId)
+        .subscribe(() => this.reloadUser());
     };
   }
 
@@ -68,6 +70,8 @@ export class UserDetailsComponent implements OnInit {
 
   onSettingsDataChanged(data: UserSettingsFormData) {
     this.userSettingsData = data;
-    console.log('settings::', data);
+    this.apiService
+      .updateUserSettings(data.notifications, this.userId)
+      .subscribe(() => this.reloadUser());
   }
 }

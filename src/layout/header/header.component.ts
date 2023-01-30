@@ -20,9 +20,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.userId = this.jwtHelper.decodeToken(localStorage.getItem("ua_auth")!).userId;
     
+    
   }
 
-  shouldShowButton() {
+  shouldShowSettingsButton() {
+    return this.authService.isAuthenticated() && !this.router.url.includes("/user/");
+  }
+
+  shouldShowLogoutButton() {
     return this.authService.isAuthenticated();
   }
 
@@ -32,6 +37,7 @@ export class HeaderComponent implements OnInit {
   }
 
   goToUserSettings() {
+    console.log(this.router.url);
     console.log('userID::',this.userId);
     this.router.navigate(['user', this.userId]);
   }

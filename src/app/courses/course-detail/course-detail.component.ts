@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { ApiService } from 'src/app/api.service';
+import { CommentFormData } from './add-comment-form/add-comment-form.component';
 
 @Component({
   selector: 'app-course-detail',
@@ -94,5 +95,10 @@ export class CourseDetailComponent implements OnInit {
     }
 
     return false;
+  }
+
+  onCommentDataChanged(data: CommentFormData) {
+    console.log(data);
+    
   }
 }

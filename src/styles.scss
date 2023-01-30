@@ -24,7 +24,7 @@ body {
   @extend .form-group;
 
   .mat-form-field-appearance-outline .mat-form-field-outline {
-    color: var(--ct-hover-form-field);
+    color: gray;
     background-color: #ffffff;
   }
 

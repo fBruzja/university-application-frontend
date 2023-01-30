@@ -6,7 +6,7 @@
     type="button"
     class="margin-left"
     tooltip="User Settings"
-    *ngIf="this.shouldShowButton()"
+    *ngIf="this.shouldShowSettingsButton()"
     (click)="goToUserSettings()"
   >
     <span>User Settings</span>
@@ -16,7 +16,7 @@
     type="button"
     class="margin-left"
     tooltip="Logout"
-    *ngIf="this.shouldShowButton()"
+    *ngIf="this.shouldShowLogoutButton()"
     (click)="logOut()"
   >
     <span>Logout</span>

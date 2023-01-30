@@ -1,56 +1,73 @@
 <app-toolbar title="Course details">
-    <button
-      mat-stroked-button
-      type="button"
-      class="stroked-button margin-left"
-      tooltip="Attend course!"
-      (click)="attendCourse()"
-      *ngIf="!isAttendingCourse()"
-    >
-      <span>Attend course</span>
-    </button>
-    <button
-      mat-stroked-button
-      type="button"
-      class="stroked-button margin-left"
-      tooltip="Drop course!"
-      (click)="dropCourse()"
-      *ngIf="isAttendingCourse()"
-    >
-      <span>Drop course</span>
-    </button>
-    <button
-      mat-stroked-button
-      type="button"
-      class="stroked-button margin-left"
-      tooltip="Back to overview"
-      routerLink="/courses"
-    >
-      <span>Back to overview</span>
-    </button>
-  </app-toolbar>
-  
-  <app-overlay *ngIf="loading">
-    <mat-progress-spinner
-      diameter="25"
-      mode="indeterminate"
-      color="primary"
-      strokeWidth="2"
-    >
-    </mat-progress-spinner>
-  </app-overlay>
-  
-  <div class="wrapper">
-    <app-expandable label="{{course.title}}" [isExpandable]="true" [expanded]="true">
-        <p class="course-detail-element">{{course.description}}</p>
-        <p class="course-detail-element">Starting time: {{course.time}}</p>
-        <p class="course-detail-element">Location: {{course.location}}</p>
-        <p class="course-detail-element">Attendees:</p>
-        <div *ngFor="let attendee of course.attendees">
-            <div *ngFor="let attendee of attendees">
-                <p class="course-detail-element"> - {{attendee.firstName}} {{attendee.lastName}}</p>
-            </div>
-        </div>
-    </app-expandable>
-  </div>
-  
+  <button
+    mat-stroked-button
+    type="button"
+    class="stroked-button margin-left"
+    tooltip="Attend course!"
+    (click)="attendCourse()"
+    *ngIf="!isAttendingCourse()"
+  >
+    <span>Attend course</span>
+  </button>
+  <button
+    mat-stroked-button
+    type="button"
+    class="stroked-button margin-left"
+    tooltip="Drop course!"
+    (click)="dropCourse()"
+    *ngIf="isAttendingCourse()"
+  >
+    <span>Drop course</span>
+  </button>
+  <button
+    mat-stroked-button
+    type="button"
+    class="stroked-button margin-left"
+    tooltip="Back to overview"
+    routerLink="/courses"
+  >
+    <span>Back to overview</span>
+  </button>
+</app-toolbar>
+
+<app-overlay *ngIf="loading">
+  <mat-progress-spinner
+    diameter="25"
+    mode="indeterminate"
+    color="primary"
+    strokeWidth="2"
+  >
+  </mat-progress-spinner>
+</app-overlay>
+
+<div class="wrapper">
+  <app-expandable
+    label="{{ course.title }}"
+    [isExpandable]="true"
+    [expanded]="true"
+  >
+    <p class="course-detail-element">{{ course.description }}</p>
+    <p class="course-detail-element">Starting time: {{ course.courseTime }}</p>
+    <p class="course-detail-element">Location: {{ course.location }}</p>
+    <p class="course-detail-element">Attendees:</p>
+    <div *ngFor="let attendee of course.attendees">
+      <div *ngFor="let attendee of attendees">
+        <p class="course-detail-element">
+          - {{ attendee.firstName }} {{ attendee.lastName }}
+          <img
+            class="attendee-profile-picture"
+            [src]="attendee.profilePicture"
+          />
+        </p>
+      </div>
+    </div>
+  </app-expandable>
+</div>
+
+<div class="wrapper">
+  <app-expandable label="Comments" [isExpandable]="true" [expanded]="true">
+    <app-add-comment-form
+      (commentChanged)="onCommentDataChanged($event)"
+    ></app-add-comment-form>
+  </app-expandable>
+</div>

@@ -23,6 +23,8 @@ export class CoursesOverviewComponent implements OnInit {
     this.loading = true;
     this.apiService.getCourseList().subscribe((response: any) => {
       this.courses = response;
+      console.log(response);
+      
       this.loading = false;
     })
   }
