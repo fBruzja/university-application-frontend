@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
+import { CourseCalendarComponent } from './courses/course-calendar/course-calendar.component';
 import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
 import { CoursesOverviewComponent } from './courses/courses-overview/courses-overview.component';
 import { LoginComponent } from './login/login.component';
@@ -17,6 +18,11 @@ const routes: Routes = [
     {
         path: 'courses/:id',
         component: CourseDetailComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'calendar',
+        component: CourseCalendarComponent,
         canActivate: [AuthGuard]
     },
     {

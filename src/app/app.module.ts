@@ -38,6 +38,10 @@ import { CheckboxComponent } from './ui/checkbox/checkbox.component';
 import { UserDetailsSettingsFormComponent } from './user-details/user-details-settings-form/user-details-settings-form.component';
 import { AddCommentFormComponent } from './courses/course-detail/add-comment-form/add-comment-form.component';
 import { CommentComponent } from './courses/course-detail/comment/comment.component';
+import { CourseCalendarComponent } from './courses/course-calendar/course-calendar.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarHeaderComponent } from './courses/course-calendar/calendar-header/calendar-header.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +64,8 @@ import { CommentComponent } from './courses/course-detail/comment/comment.compon
     UserDetailsSettingsFormComponent,
     AddCommentFormComponent,
     CommentComponent,
+    CourseCalendarComponent,
+    CalendarHeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,7 +86,11 @@ import { CommentComponent } from './courses/course-detail/comment/comment.compon
     MatMenuModule,
     MatInputModule,
     MatCheckboxModule,
-    MatBadgeModule
+    MatBadgeModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    })
   ],
   providers: [
     AuthGuard,

@@ -27,6 +27,10 @@ export class HeaderComponent implements OnInit {
     return this.authService.isAuthenticated() && !this.router.url.includes("/user/");
   }
 
+  shouldShowCalendarButton() {
+    return this.authService.isAuthenticated() && !this.router.url.includes("calendar");
+  }
+
   shouldShowLogoutButton() {
     return this.authService.isAuthenticated();
   }
@@ -37,8 +41,6 @@ export class HeaderComponent implements OnInit {
   }
 
   goToUserSettings() {
-    console.log(this.router.url);
-    console.log('userID::',this.userId);
     this.router.navigate(['user', this.userId]);
   }
 }

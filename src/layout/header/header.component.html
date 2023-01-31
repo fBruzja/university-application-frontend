@@ -15,6 +15,16 @@
     mat-stroked-button
     type="button"
     class="margin-left"
+    tooltip="Calendar"
+    routerLink="/calendar"
+    *ngIf="this.shouldShowCalendarButton()"
+  >
+    <span>Calendar</span>
+  </button>
+  <button
+    mat-stroked-button
+    type="button"
+    class="margin-left"
     tooltip="Logout"
     *ngIf="this.shouldShowLogoutButton()"
     (click)="logOut()"
