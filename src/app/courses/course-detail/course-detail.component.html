@@ -50,7 +50,6 @@
     <p class="course-detail-element">Starting time: {{ course.courseTime }}</p>
     <p class="course-detail-element">Location: {{ course.location }}</p>
     <p class="course-detail-element">Attendees:</p>
-    <div *ngFor="let attendee of course.attendees">
       <div *ngFor="let attendee of attendees">
         <p class="course-detail-element">
           - {{ attendee.firstName }} {{ attendee.lastName }}
@@ -60,12 +59,18 @@
           />
         </p>
       </div>
-    </div>
   </app-expandable>
 </div>
 
 <div class="wrapper">
   <app-expandable label="Comments" [isExpandable]="true" [expanded]="true">
+    <div *ngFor="let comment of comments">
+      <app-comment
+        [comment]="comment"
+        (commentLiked)="onCommentLiked($event)"
+        [disabled]="hasLiked(comment.likedBy)"
+      ></app-comment>
+    </div>
     <app-add-comment-form
       (commentChanged)="onCommentDataChanged($event)"
     ></app-add-comment-form>

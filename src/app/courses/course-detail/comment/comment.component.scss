@@ -1,0 +1,29 @@
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 15px;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  margin-top: 6px;
+  margin-left: 6px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.username {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.like-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 8px;
+}

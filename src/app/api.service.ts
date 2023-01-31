@@ -79,7 +79,19 @@ export class ApiService {
     return this.http.get(`http://localhost:8080/api/comments/${courseId}`);
   }
 
-  addComment(content: string, author: string, course: number, likes: number) {
+  addComment(content: string, author: string, course: string, likes: number) {
+    return this.http.post('http://localhost:8080/api/comments/add-comment', {
+      content,
+      author,
+      likes,
+      course,
+    });
+  }
 
+  likeComment(userId: string, commentId: number) {
+    return this.http.put(
+      `http://localhost:8080/api/comments/like/${userId}/${commentId}`,
+      {}
+    );
   }
 }

@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 export interface CommentFormData {
-  content: string;
+  comment: string;
 }
 
 @Component({
@@ -27,6 +27,8 @@ export class AddCommentFormComponent {
   constructor() {}
 
   addComment() {
-    this.commentChanged.emit(this.formGroup.value as CommentFormData);
+    if (this.formGroup.valid) {
+      this.commentChanged.emit(this.formGroup.value as CommentFormData);
+    }
   }
 }

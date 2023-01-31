@@ -1,0 +1,19 @@
+<div class="comment-container">
+  <div class="comment-header">
+    <div class="comment-header-text">
+      <h3 class="username">{{comment.author}}</h3>
+    </div>
+  </div>
+  <p class="comment-text">{{comment.content}}</p>
+  <div class="like-container">
+    <button
+      mat-icon-button
+      [matBadge]="comment.likes"
+      matBadgePosition="above after"
+      (click)="likeComment()"
+      [disabled]="disabled"
+    >
+      <mat-icon>thumb_up</mat-icon>
+    </button>
+  </div>
+</div>

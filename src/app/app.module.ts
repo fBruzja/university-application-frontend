@@ -20,6 +20,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatBadgeModule} from '@angular/material/badge';
 import { MatInputModule } from '@angular/material/input';
 import { ExpandableComponent } from './ui/expandable/expandable.component';
 import { NotFoundPageComponent } from './shared/component/not-found-page/not-found-page.component';
@@ -36,6 +37,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { CheckboxComponent } from './ui/checkbox/checkbox.component';
 import { UserDetailsSettingsFormComponent } from './user-details/user-details-settings-form/user-details-settings-form.component';
 import { AddCommentFormComponent } from './courses/course-detail/add-comment-form/add-comment-form.component';
+import { CommentComponent } from './courses/course-detail/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { AddCommentFormComponent } from './courses/course-detail/add-comment-for
     CheckboxComponent,
     UserDetailsSettingsFormComponent,
     AddCommentFormComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +80,7 @@ import { AddCommentFormComponent } from './courses/course-detail/add-comment-for
     MatMenuModule,
     MatInputModule,
     MatCheckboxModule,
+    MatBadgeModule
   ],
   providers: [
     AuthGuard,
