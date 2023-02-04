@@ -28,8 +28,9 @@ export class CourseDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    public jwtHelper: JwtHelperService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router: Router,
+    public jwtHelper: JwtHelperService
   ) {}
 
   ngOnInit(): void {
@@ -134,9 +135,13 @@ export class CourseDetailComponent implements OnInit {
   }
 
   hasLiked(likedBy: number[]): boolean {
-    console.log(likedBy);
-
     let index = likedBy.findIndex((x: number) => x === this.user.userId);
     return index !== -1;
+  }
+
+  goToPersonPage(userId: any) {
+    if(userId !== this.user.userId) {
+      this.router.navigate(['/person-detail', userId]);
+    }
   }
 }

@@ -31,16 +31,12 @@ app-expandable {
   display: block;
 }
 
-.course-detail-element {
-    margin: 15px;
+.user-info-wrapper {
+  margin: 15px;
 }
 
-.attendee-profile-picture {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-}
-
-.non-user-clickable-profile {
-  cursor: pointer;
+.profile-picture {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }

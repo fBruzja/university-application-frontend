@@ -1,0 +1,60 @@
+<app-toolbar title="Student profile">
+  <button
+    mat-stroked-button
+    type="button"
+    class="stroked-button margin-left"
+    tooltip="Back to overview"
+    routerLink="/courses"
+  >
+    <span>Back to overview</span>
+  </button>
+</app-toolbar>
+
+<app-overlay *ngIf="loading">
+  <mat-progress-spinner
+    diameter="25"
+    mode="indeterminate"
+    color="primary"
+    strokeWidth="2"
+  >
+  </mat-progress-spinner>
+</app-overlay>
+
+<div class="wrapper">
+  <app-expandable
+    label="Student details"
+    [isExpandable]="true"
+    [expanded]="true"
+  >
+    <div class="user-info-wrapper container__row">
+      <div class="container__col-6">
+        <p>
+          {{ user.firstName }} {{ user.lastName }}
+          <img
+            *ngIf="base64Image.length > 0"
+            class="profile-picture"
+            [src]="base64Image"
+          />
+          <button
+            mat-stroked-button
+            type="button"
+            class="stroked-button margin-left"
+            tooltip="Add Friend"
+            (click)="addFriend()"
+            *ngIf="!areTheseTwoUsersFriends"
+          >
+            <span>Add Friend</span>
+          </button>
+        </p>
+        <p>Major: {{ user.major }}</p>
+        <p>Minor: {{ user.minor }}</p>
+        <p>Courses:</p>
+        <div *ngIf="shouldShowCourses">
+          <div *ngFor="let course of courses">
+            <p>- {{ course.title }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </app-expandable>
+</div>

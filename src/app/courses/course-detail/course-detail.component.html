@@ -51,7 +51,7 @@
     <p class="course-detail-element">Location: {{ course.location }}</p>
     <p class="course-detail-element">Attendees:</p>
       <div *ngFor="let attendee of attendees">
-        <p class="course-detail-element">
+        <p class="course-detail-element non-user-clickable-profile" (click)="goToPersonPage(attendee.userId)" >
           - {{ attendee.firstName }} {{ attendee.lastName }}
           <img
             class="attendee-profile-picture"

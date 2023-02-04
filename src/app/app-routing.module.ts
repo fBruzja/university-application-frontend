@@ -7,6 +7,7 @@ import { CoursesOverviewComponent } from './courses/courses-overview/courses-ove
 import { LoginComponent } from './login/login.component';
 import { NotFoundPageComponent } from './shared/component/not-found-page/not-found-page.component';
 import { SignupComponent } from './signup/signup.component';
+import { NonUserDetailsComponent } from './user-details/non-user-details/non-user-details.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 
 const routes: Routes = [
@@ -28,6 +29,11 @@ const routes: Routes = [
     {
         path: 'user/:id',
         component: UserDetailsComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'person-detail/:id',
+        component: NonUserDetailsComponent,
         canActivate: [AuthGuard]
     },
     {

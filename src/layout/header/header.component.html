@@ -1,6 +1,61 @@
 <mat-toolbar>
-  <span>University Application</span>
+  <span routerLink="/courses" class="home-title">University Application</span>
   <span class="flex-expand"></span>
+  <mat-icon
+    [matBadge]="notificationCount"
+    matBadgePosition="above after"
+    [matMenuTriggerFor]="notificationMenu"
+    class="notification-icon"
+    *ngIf="this.shouldShowButtonWhenNotAuthenticated()"
+    >notifications</mat-icon
+  >
+  <mat-menu #notificationMenu="matMenu">
+    <ng-template matMenuContent>
+      <mat-list>
+
+        <mat-list-item
+          class="notification-item"
+          *ngFor="let notification of pendingNotifications"
+        >
+          <div (click)="openDialog(notification)">
+            You have a friend request from:
+            {{
+              (notification | async)?.firstName +
+                " " +
+                (notification | async)?.lastName
+            }}
+          </div></mat-list-item>
+
+          <mat-list-item
+          class="notification-item"
+          *ngFor="let notification of rejectionNotifications"
+        >
+          <div (click)="setNotifiedToTrue(notification)">
+            Your friend request was rejected by: 
+            {{
+              (notification | async)?.firstName +
+                " " +
+                (notification | async)?.lastName
+            }}
+          </div></mat-list-item>
+
+          <mat-list-item
+          class="notification-item"
+          *ngFor="let notification of acceptedNotifications"
+        >
+          <div (click)="setNotifiedToTrue(notification)">
+            Your friend request was accepted by: 
+            {{
+              (notification | async)?.firstName +
+                " " +
+                (notification | async)?.lastName
+            }}
+          </div></mat-list-item>
+
+      </mat-list>
+    </ng-template>
+  </mat-menu>
+
   <button
     mat-stroked-button
     type="button"
@@ -26,7 +81,7 @@
     type="button"
     class="margin-left"
     tooltip="Logout"
-    *ngIf="this.shouldShowLogoutButton()"
+    *ngIf="this.shouldShowButtonWhenNotAuthenticated()"
     (click)="logOut()"
   >
     <span>Logout</span>

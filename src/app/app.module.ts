@@ -42,6 +42,11 @@ import { CourseCalendarComponent } from './courses/course-calendar/course-calend
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarHeaderComponent } from './courses/course-calendar/calendar-header/calendar-header.component';
+import {MatListModule} from '@angular/material/list';
+import { NonUserDetailsComponent } from './user-details/non-user-details/non-user-details.component';
+import { DialogComponent } from './ui/dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -66,6 +71,8 @@ import { CalendarHeaderComponent } from './courses/course-calendar/calendar-head
     CommentComponent,
     CourseCalendarComponent,
     CalendarHeaderComponent,
+    NonUserDetailsComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +94,9 @@ import { CalendarHeaderComponent } from './courses/course-calendar/calendar-head
     MatInputModule,
     MatCheckboxModule,
     MatBadgeModule,
+    MatListModule,
+    MatDialogModule,
+    MatSnackBarModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,

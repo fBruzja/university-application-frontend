@@ -94,4 +94,92 @@ export class ApiService {
       {}
     );
   }
+
+  findFriendshipRequestsByUserId(userId: number) {
+    return this.http.get(
+      `http://localhost:8080/api/friendship/user-id/${userId}`
+    );
+  }
+
+  createFriendship(userId: any, friendId: any) {
+    return this.http.post(
+      `http://localhost:8080/api/friendship/add-friendship`,
+      {
+        userId,
+        friendId,
+      }
+    );
+  }
+
+  addFriend(userId: any, friendId: any) {
+    return this.http.put(
+      `http://localhost:8080/api/users/add-friend/${userId}/${friendId}`,
+      {}
+    );
+  }
+
+  removeFriend(userId: any, friendId: any) {
+    return this.http.put(
+      `http://localhost:8080/api/users/remove-friend/${userId}/${friendId}`,
+      {}
+    );
+  }
+
+  getSpecificFriendship(userId: any, friendId: any) {
+    return this.http.get(
+      `http://localhost:8080/api/friendship/specific/${userId}/${friendId}`
+    );
+  }
+
+  areTwoUsersFriends(userId1: any, userId2: any) {
+    return this.http.get(
+      `http://localhost:8080/api/friendship/friends/are/${userId1}/${userId2}`
+    );
+  }
+
+  countNotifications(userId: any) {
+    return this.http.get(
+      `http://localhost:8080/api/friendship/friends/notification/count/${userId}`
+    );
+  }
+
+  getActiveFriendships(userId: any) {
+    return this.http.get(
+      `http://localhost:8080/api/friendship/friends/active/friendships/${userId}`
+    );
+  }
+
+  getPendingActiveFriendships(userId: any) {
+    return this.http.get(
+      `http://localhost:8080/api/friendship/friends/active/pending/friendships/${userId}`
+    );
+  }
+
+  setStatusToNotified(userId: any, friendId: any) {
+    return this.http.put(
+      `http://localhost:8080/api/friendship/friends/set/notified/${userId}/${friendId}`,
+      {}
+    );
+  }
+
+  changeFriendRequestStatus(userId: any, friendId: any, notificationState: any) {
+    return this.http.put(
+      `http://localhost:8080/api/friendship/friends/change/friendship/request/${userId}/${friendId}`,
+      {notificationState}
+    );
+  }
+
+  acceptFriendRequest(userId: any, friendId: any) {
+    return this.http.put(
+      `http://localhost:8080/api/friendship/friends/request/accept/${userId}/${friendId}`,
+      {}
+    );
+  }
+
+  rejectFriendRequest(userId: any, friendId: any) {
+    return this.http.put(
+      `http://localhost:8080/api/friendship/friends/request/reject/${userId}/${friendId}`,
+      {}
+    );
+  }
 }
