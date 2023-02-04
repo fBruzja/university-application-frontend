@@ -25,7 +25,9 @@ export class MainComponent implements OnInit {
       this.logOut();
     }
 
-    this.checkIfAnyCourseStartsWithin24Hours();
+    if (this.authService.isAuthenticated()) {
+      this.checkIfAnyCourseStartsWithin24Hours();
+    }
   }
 
   checkIfAnyCourseStartsWithin24Hours() {
